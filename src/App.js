@@ -1,6 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import TodoTemplate from './components/TodoTemplate';
+import TodoTemplate from './components/base/baseTemplate';
 
 const GlobalStyle = createGlobalStyle`
   body {
