@@ -6,10 +6,11 @@ import Main from 'pages/main';
 
 // pc , mobile
 const TodoTemplateBlock = styled.div`
-
+  padding: 30px 90px;
+  box-sizing: border-box;
 `;
 
-function TodoTemplate({ children }) {
+function TodoTemplate() {
   return (
     <TodoTemplateBlock>
       <Main />
