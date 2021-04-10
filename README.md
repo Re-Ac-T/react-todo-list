@@ -3,14 +3,13 @@
 
 ## Introduce
 ### 1. prototype
-- `figma`로 작성되었습니다.준
-- 필요한 UI component 는 `Material UI`를 이용하도록 합니다.
+- `figma`로 작성되었습니다.
 <br>
   
 ![image](https://user-images.githubusercontent.com/49235528/113503958-0f452e80-9570-11eb-8f7b-5f5c57316345.png)
 
 ### 2. 기능 구성 리스트 
-- [ ] 캘린더를 구현한다.
+- [x] 캘린더를 구현한다.
 - [ ] 캘린더를 토픽에 맞게 필터링하여 볼 수 있다.  
 - [ ] 할 일을 저장하면 날짜에 맞게 달력에 표시된다.
 - [ ] 할 일을 삭제할 수 있다.
