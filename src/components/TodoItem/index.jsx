@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import delet from '../../assets/images/delete.png';
+import {useTodoDispatch} from "../../TodoProvider";
 
 const StyleTodoItem = styled.div`
   font-family: IBM Plex Sans;
@@ -63,23 +64,28 @@ const StyledClose = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `
 
-export function TodoItem({ todos, ...rest }) {
-  //Todo : uuid적용해서 해보깅
-  return (
-    <StyleTodoItem {...rest}>
-      <StyledcontentBox>
-        <StyledRoot>
-          <p className="todo-root">{todos.root}</p>
-          <p className="todo-date">{todos.Dday}</p>
-        </StyledRoot>
-        <StyledContent>
-          <input type="checkbox" value={todos.complete} />
-          <p>{todos.todo}</p>
-        </StyledContent>
-      </StyledcontentBox>
-      <StyledClose><img src={delet} alt="close" /></StyledClose>
-    </StyleTodoItem >
-  );
+export function TodoItem({todos, id, ...rest}) {
+    //Todo : uuid적용해서 해보깅
+   const dispatch = useTodoDispatch();
+   const onRemove = () => dispatch({ type: 'REMOVE', id });
+
+
+    return (
+        <StyleTodoItem {...rest}>
+            <StyledcontentBox>
+                <StyledRoot>
+                    <p className="todo-root">{todos.root}</p>
+                    <p className="todo-date">{todos.Dday}</p>
+                </StyledRoot>
+                <StyledContent>
+                    <input type="checkbox" value={todos.complete}/>
+                    <p>{todos.todo}</p>
+                </StyledContent>
+            </StyledcontentBox>
+            <StyledClose onClick = {onRemove}><img src={delet} alt="close"/></StyledClose>
+        </StyleTodoItem>
+    );
 }
