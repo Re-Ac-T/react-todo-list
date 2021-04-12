@@ -17,19 +17,10 @@ const StyledMain = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const StyledSubmit = styled.button`
-  width: 100%;
-  height: 60px;
-  background: #76A9FF;
-  border-radius: 10px;
-  color: #000;
-  font-weight: 700;
-  font-size: 24px
-`;
 
 
 function Main() {
-  const [changeTabMenu, setChageTabMenu] = useState(1);
+  const [changeTabMenu, setChageTabMenu] = useState('all');
   const [slectTabMenu, setSelectTabMenu] = useState('');
 
   const handleChangeMenu = useCallback((id) => {
@@ -48,7 +39,6 @@ function Main() {
       <TodoList changeTabMenu={changeTabMenu} />
       <AddTodo />
       <SelectTab tab={DummyTabList} handleSelectMenu={handleSelectMenu} />
-      <StyledSubmit>등록</StyledSubmit>
     </StyledMain>);
 }
 

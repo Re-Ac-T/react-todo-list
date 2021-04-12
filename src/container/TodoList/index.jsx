@@ -17,17 +17,15 @@ const StyledTodoList = styled.div`
 
 function TodoList({ changeTabMenu }) {
   const todoLength = DummyTodoList.filter(todo => {
-    return todo.id === changeTabMenu;
+    console.log(todo.root);
+    console.log(changeTabMenu);
+    return todo.root === changeTabMenu;
   }).length;
 
   return (
     <StyledTodoList>
-      { DummyTodoList && changeTabMenu === 1 ?
-        DummyTodoList.map((todo, index) => {
-          return <TodoItem key={index} todos={todo} />
-        })
-        : DummyTodoList && DummyTodoList.filter(todo => {
-          return todo.id === changeTabMenu;
+      { DummyTodoList && DummyTodoList.filter(todo => {
+          return todo.root === changeTabMenu;
         }).map((todo, index) => {
           return <TodoItem key={index} todos={todo} />
         })
