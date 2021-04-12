@@ -51,7 +51,6 @@ function AddTodo() {
                     style={{marginTop: 20}}
                     inputName="TodoTitle"
                     inputLabel="제목을 적어주세요"
-                    value={value}
                 />
                 <InputBox
                     inputName="TodoDate"
