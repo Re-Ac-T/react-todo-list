@@ -117,7 +117,7 @@ export const DummyTodoList = [
     id: 7,
     root: '일상생활',
     todo: '방청소',
-    Dday: '2021-04-010',
+    Dday: '2021-04-10',
     complete: false
   }
 ]

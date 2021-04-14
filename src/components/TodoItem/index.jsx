@@ -72,7 +72,6 @@ export function TodoItem({todos, id, ...rest}) {
    const dispatch = useTodoDispatch();
    const onRemove = () => dispatch({ type: 'REMOVE', id });
 
-
     return (
         <StyleTodoItem {...rest}>
             <StyledcontentBox>

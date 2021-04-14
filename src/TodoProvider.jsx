@@ -38,24 +38,24 @@ export function TodoProvider({children}) {
 
 export function useTodoState() {
     const context = useContext(TodoStateContext);
-    // if (!context) {
-    //     throw new Error('Cannot find TodoProvider');
-    // }
+    if (!context) {
+        throw new Error('Cannot find TodoProvider');
+    }
     return context;
 }
 
 export function useTodoDispatch() {
     const context = useContext(TodoDispatchContext);
-    // if (!context) {
-    //     throw new Error('Cannot find TodoProvider');
-    // }
+    if (!context) {
+        throw new Error('Cannot find TodoProvider');
+    }
     return context;
 }
 
 export function useTodoNextId() {
     const context = useContext(TodoNextIdContext);
-    // if (!context) {
-    //     throw new Error('Cannot find TodoProvider');
-    // }
+    if (!context) {
+        throw new Error('Cannot find TodoProvider');
+    }
     return context;
 }
