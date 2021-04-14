@@ -44,7 +44,6 @@ function AddTodo() {
     };
 
     return (
-        <TodoProvider>
             <StyledAddTodo>
                 <TxtBox><h3 className="addTodo">할 일을 적어주세요!</h3></TxtBox>
                 <InputBox
@@ -57,9 +56,8 @@ function AddTodo() {
                     inputLabel="날짜를 적어주세요"
                     style={{marginTop: 30}}
                 />
+                <StyledSubmit>등록</StyledSubmit>
             </StyledAddTodo>
-            <StyledSubmit>등록</StyledSubmit>
-        </TodoProvider>
     );
 }
 
