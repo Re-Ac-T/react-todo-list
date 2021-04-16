@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { MainTab, Header, Date, TodoList, AddTodo, SelectTab } from 'container';
-import { DummyTabList } from 'dummy/data';
+import {MainTab, Header, Date, TodoList, AddTodo, SelectTab} from 'container';
+import {DummyTabList} from 'dummy/data';
+import {TodoProvider} from "../TodoProvider";
 
 const StyledMain = styled.div`
   padding: 30px 20px 90px;
@@ -20,26 +21,28 @@ const StyledMain = styled.div`
 
 
 function Main() {
-  const [changeTabMenu, setChageTabMenu] = useState('all');
-  const [slectTabMenu, setSelectTabMenu] = useState('');
+    const [changeTabMenu, setChageTabMenu] = useState('all');
+    const [slectTabMenu, setSelectTabMenu] = useState('');
 
-  const handleChangeMenu = useCallback((id) => {
-    setChageTabMenu(id)
-  });
+    const handleChangeMenu = useCallback((id) => {
+        setChageTabMenu(id)
+    });
 
-  const handleSelectMenu = useCallback((id) => {
-    setSelectTabMenu(id)
-  });
+    const handleSelectMenu = useCallback((id) => {
+        setSelectTabMenu(id)
+    });
 
-  return (
-    <StyledMain>
-      <Header />
-      <MainTab tab={DummyTabList} handleChangeMenu={handleChangeMenu} />
-      <Date />
-      <TodoList changeTabMenu={changeTabMenu} />
-      <AddTodo />
-      <SelectTab tab={DummyTabList} handleSelectMenu={handleSelectMenu} />
-    </StyledMain>);
+    return (
+        <TodoProvider>
+            <StyledMain>
+                <Header/>
+                <MainTab tab={DummyTabList} handleChangeMenu={handleChangeMenu}/>
+                <Date/>
+                <TodoList changeTabMenu={changeTabMenu}/>
+                <AddTodo/>
+                <SelectTab tab={DummyTabList} handleSelectMenu={handleSelectMenu}/>
+            </StyledMain>
+        </TodoProvider>);
 }
 
 export default Main;

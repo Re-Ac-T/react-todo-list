@@ -20,10 +20,10 @@ font-family: IBM Plex Sans;
   }
 `;
 
-export const InputBox = ({ inputLabel, inputName, value, ...rest }) => {
+export const InputBox = ({ inputLabel, inputName, value, onChange, ...rest }) => {
   return (
     <StyledInputBox {...rest}>
       <label name={inputName}>{inputLabel}</label>
-      <input id={inputName} value={value} type="text" />
+      <input id={inputName} value={value} onChange={onChange} type="text" />
     </StyledInputBox>);
 }
