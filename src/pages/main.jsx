@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {MainTab, Header, Date, TodoList, AddTodo, SelectTab} from 'container';
 import {DummyTabList} from 'dummy/data';
-import {TodoProvider} from "../TodoProvider";
+import {TodoProvider} from "../ToDoContext";
 
 const StyledMain = styled.div`
   padding: 30px 20px 90px;
@@ -42,7 +42,8 @@ function Main() {
                 <AddTodo/>
                 <SelectTab tab={DummyTabList} handleSelectMenu={handleSelectMenu}/>
             </StyledMain>
-        </TodoProvider>);
+        </TodoProvider>
+    );
 }
 
 export default Main;

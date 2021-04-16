@@ -23,7 +23,7 @@ const TodoNextIdContext = createContext();
 
 export function TodoProvider({children}) {
     const [state, dispatch] = useReducer(todoReducer, DummyTodoList);
-    const nextId = useRef(7);
+    const nextId = useRef(8);
 
     return (
         <TodoStateContext.Provider value={state}>

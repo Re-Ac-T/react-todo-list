@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import {TodoItem} from "components";
 import {DummyTodoList} from 'dummy/data';
+import {useTodoState} from "../../ToDoContext";
 
 const StyledTodoList = styled.div`
   padding: 25px 0;
@@ -16,6 +17,8 @@ const StyledTodoList = styled.div`
 
 
 function TodoList({changeTabMenu}) {
+    const todos = useTodoState();
+
     const todoLength = DummyTodoList.filter(todo => {
         return todo.root === changeTabMenu;
     }).length;
@@ -23,7 +26,7 @@ function TodoList({changeTabMenu}) {
     return (
         <StyledTodoList>
             {DummyTodoList && changeTabMenu === 'All' ?
-                DummyTodoList.map((todo, index) => {
+                todos.map((todo, index) => {
                     return <TodoItem key={index} todos={todo}/>
                 })
                 : DummyTodoList && DummyTodoList.filter(todo => {

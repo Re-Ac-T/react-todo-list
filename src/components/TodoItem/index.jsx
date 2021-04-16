@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import delet from '../../assets/images/delete.png';
-import {useTodoDispatch} from "../../TodoProvider";
+import {useTodoDispatch} from "../../ToDoContext";
 
 const StyleTodoItem = styled.div`
   font-family: IBM Plex Sans;
@@ -69,8 +69,10 @@ const StyledClose = styled.span`
 
 export function TodoItem({todos, id, ...rest}) {
     //Todo : uuid적용해서 해보깅
-   const dispatch = useTodoDispatch();
-   const onRemove = () => dispatch({ type: 'REMOVE', id });
+    const dispatch = useTodoDispatch();
+    const onToggle = () => dispatch({type: 'TOGGLE', id});
+
+    const onRemove = () => dispatch({type: 'REMOVE', id});
 
     return (
         <StyleTodoItem {...rest}>
@@ -84,7 +86,7 @@ export function TodoItem({todos, id, ...rest}) {
                     <p>{todos.todo}</p>
                 </StyledContent>
             </StyledcontentBox>
-            <StyledClose onClick = {onRemove}><img src={delet} alt="close"/></StyledClose>
+            <StyledClose onClick={onRemove}><img src={delet} alt="close"/></StyledClose>
         </StyleTodoItem>
     );
 }
