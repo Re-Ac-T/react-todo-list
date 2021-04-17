@@ -27,12 +27,12 @@ function TodoList({changeTabMenu}) {
         <StyledTodoList>
             {DummyTodoList && changeTabMenu === 'All' ?
                 todos.map((todo, index) => {
-                    return <TodoItem key={index} todos={todo}/>
+                    return <TodoItem key={index} todos={todo} id={todo.id}/>
                 })
-                : DummyTodoList && DummyTodoList.filter(todo => {
+                : todos.filter(todo => {
                 return todo.root === changeTabMenu;
             }).map((todo, index) => {
-                return <TodoItem key={index} todos={todo}/>
+                return <TodoItem key={index} todos={todo} id={todo.id}/>
             })
             }
             {todoLength === 0 && <p className="emptyTxt">리스트가 비어있습니다.</p>}

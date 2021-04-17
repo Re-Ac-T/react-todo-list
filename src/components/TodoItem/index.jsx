@@ -70,7 +70,6 @@ const StyledClose = styled.span`
 export function TodoItem({todos, id, ...rest}) {
     //Todo : uuid적용해서 해보깅
     const dispatch = useTodoDispatch();
-    const onToggle = () => dispatch({type: 'TOGGLE', id});
 
     const onRemove = () => dispatch({type: 'REMOVE', id});
 
