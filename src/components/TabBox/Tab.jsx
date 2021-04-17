@@ -70,12 +70,12 @@ export function TabBox({ tab, handleChangeMenu, handleSelectMenu, type, ...rest 
           <>
             {type === 'selectTab' ?
               <>
-                <input type="radio" id={`radio-main-${index}`} name="checkTab" value={index} onClick={() => handleSelectMenu(title.title)} />
+                <input type="radio" id={`radio-main-${index}`} name="checkTab" value={title} onClick={() => handleSelectMenu(title.title)} />
                 <label for={`radio-main-${index}`}>{title.title}</label>
               </>
               :
               <>
-                <input type="radio" id={`radio-select-${index}`} name="checkTab" value={index} onClick={() => handleChangeMenu(title.id)} />
+                <input type="radio" id={`radio-select-${index}`} name="checkTab" value={title} onClick={() => handleChangeMenu(title.title)} />
                 <label for={`radio-select-${index}`}>{title.title}</label>
               </>
             }

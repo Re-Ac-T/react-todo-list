@@ -73,7 +73,7 @@ export const DummyTabList = [
 
 export const DummyTodoList = [
   {
-    id: 2,
+    id: 1,
     root: '학교과제',
     todo: '자료구조 과제하기',
     Dday: '2021-04-06',
@@ -93,31 +93,31 @@ export const DummyTodoList = [
     complete: false
   },
   {
-    id: 3,
+    id: 4,
     todo: '공부',
     root: '일상생활',
     Dday: '2021-04-06',
     complete: false
   },
   {
-    id: 2,
+    id: 5,
     root: '학교과제',
     todo: '출석하기',
     Dday: '2021-04-09',
     complete: false
   },
   {
-    id: 3,
+    id: 6,
     root: '일상생활',
     todo: '강아지 산책',
     Dday: '2021-04-11',
     complete: false
   },
   {
-    id: 3,
+    id: 7,
     root: '일상생활',
     todo: '방청소',
-    Dday: '2021-04-010',
+    Dday: '2021-04-10',
     complete: false
   }
 ]
