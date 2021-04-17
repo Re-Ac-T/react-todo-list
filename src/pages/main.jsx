@@ -22,14 +22,9 @@ const StyledMain = styled.div`
 
 function Main() {
     const [changeTabMenu, setChageTabMenu] = useState('all');
-    const [slectTabMenu, setSelectTabMenu] = useState('');
 
     const handleChangeMenu = useCallback((id) => {
         setChageTabMenu(id)
-    });
-
-    const handleSelectMenu = useCallback((id) => {
-        setSelectTabMenu(id)
     });
 
     return (
@@ -40,7 +35,6 @@ function Main() {
                 <Date/>
                 <TodoList changeTabMenu={changeTabMenu}/>
                 <AddTodo/>
-                <SelectTab tab={DummyTabList} handleSelectMenu={handleSelectMenu}/>
             </StyledMain>
         </TodoProvider>
     );

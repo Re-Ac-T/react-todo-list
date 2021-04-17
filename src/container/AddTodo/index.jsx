@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
 
 import {TxtBox, InputBox, CheckboxBox} from 'components';
 import {useTodoDispatch, useTodoNextId} from "../../ToDoContext";
+import {DummyTabList} from "../../dummy/data";
+import {SelectTab} from "../index";
 
 const StyledAddTodo = styled.div`
   margin-bottom: 25px;
@@ -20,31 +22,35 @@ const StyledSubmit = styled.button`
 
 
 function AddTodo() {
-    const [open, setOpen] = useState(false);
     const [todoValue, setTodoValue] = useState('');
     const [dDayValue, setDdayValue] = useState('');
+    const [slectTabMenu, setSelectTabMenu] = useState('');
 
     const dispatch = useTodoDispatch();
     const nextId = useTodoNextId();
 
-    const onToggle = () => setOpen(!open);
     const onTodoChange = e => setTodoValue(e.target.value);
     const onDayChange = e => setDdayValue(e.target.value)
+    const handleSelectMenu = useCallback((id) => {
+        setSelectTabMenu(id)
+    });
     const onSubmit = e => {
         e.preventDefault(); // 새로고침 방지
         console.log(nextId.current)
+        console.log(slectTabMenu)
         dispatch({
             type: 'CREATE',
             todo: {
                 id: nextId.current,
                 todo: todoValue,
                 Dday: dDayValue,
+                root: slectTabMenu,
                 done: false
             }
         });
         setTodoValue('');
         setDdayValue('');
-        setOpen(false);
+        setSelectTabMenu('')
 
         nextId.current += 1;
     };
@@ -70,7 +76,10 @@ function AddTodo() {
                     onChange={onDayChange}
                     value={dDayValue}
                 />
-
+                <SelectTab tab={DummyTabList}
+                           handleSelectMenu={handleSelectMenu}
+                           value={slectTabMenu}
+                />
                 <StyledSubmit>등록</StyledSubmit>
             </form>
         </StyledAddTodo>
