@@ -18,7 +18,7 @@ const StyleTodoItem = styled.div`
   }
 `;
 
-const StyledcontentBox = styled.div`
+const StyledContentBox = styled.div`
   width : 90%;
 `
 const StyledRoot = styled.div`
@@ -75,7 +75,7 @@ export function TodoItem({todos, id, ...rest}) {
 
     return (
         <StyleTodoItem {...rest}>
-            <StyledcontentBox>
+            <StyledContentBox>
                 <StyledRoot>
                     <p className="todo-root">{todos.root}</p>
                     <p className="todo-date">{todos.Dday}</p>
@@ -84,7 +84,7 @@ export function TodoItem({todos, id, ...rest}) {
                     <input type="checkbox" value={todos.complete}/>
                     <p>{todos.todo}</p>
                 </StyledContent>
-            </StyledcontentBox>
+            </StyledContentBox>
             <StyledClose onClick={onRemove}><img src={delet} alt="close"/></StyledClose>
         </StyleTodoItem>
     );
