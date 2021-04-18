@@ -49,37 +49,38 @@ const StyleTabBox = styled.div`
       background: #FF8181;
       border-radius: 30px;
       color: #fff;
-      margin-right: 10px;
+    }  
+    span {
+        margin-right: 10px;
       
-      &:last-child {
-      margin-right: 0;
-
+        &:last-child {
+        margin-right: 0;
+  
+        }
       }
-    }
     `}
     
 `;
 
 export function TabBox({ tab, handleChangeMenu, handleSelectMenu, type, ...rest }) {
-  console.log(tab)
   // todo: refactoring
   return (
     <StyleTabBox type={type} {...rest}>
       {tab && tab.map((title, index) => {
         return (
-          <>
+          <span key={`${title}-${index}`} style={{ display: 'inline-block' }}>
             {type === 'selectTab' ?
               <>
                 <input type="radio" id={`radio-main-${index}`} name="checkTab" value={title} onClick={() => handleSelectMenu(title.title)} />
-                <label for={`radio-main-${index}`}>{title.title}</label>
+                <label htmlFor={`radio-main-${index}`}>{title.title}</label>
               </>
               :
               <>
                 <input type="radio" id={`radio-select-${index}`} name="checkTab" value={title} onClick={() => handleChangeMenu(title.title)} />
-                <label for={`radio-select-${index}`}>{title.title}</label>
+                <label htmlFor={`radio-select-${index}`}>{title.title}</label>
               </>
             }
-          </>
+          </span>
         )
       })}
     </StyleTabBox>

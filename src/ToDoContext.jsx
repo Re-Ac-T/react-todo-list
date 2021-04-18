@@ -1,5 +1,5 @@
 import React, { useReducer, createContext, useContext, useRef } from 'react';
-import {DummyTodoList} from "./dummy/data";
+import { DummyTodoList } from "./dummy/data";
 
 
 function todoReducer(state, action) {
