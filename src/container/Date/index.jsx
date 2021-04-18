@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import 'assets/less/customDatePicker.less';
 import prev from 'assets/images/prev.png';
@@ -168,13 +168,14 @@ const StyledDate = styled.div`
  `
 
 //todo: repactoring
-export default ({ ...props }) => {
-  const [startDate, setStartDate] = useState(new Date());
+export default ({ setSelectDate }) => {
+  const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const onChange = dates => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
+
   };
 
   const highlightDates = [
@@ -185,6 +186,13 @@ export default ({ ...props }) => {
       'react-datepicker__day-highlighted-end-date': [endDate || new Date()]
     }
   ]
+
+  useEffect(() => {
+    setSelectDate({
+      start: startDate,
+      end: endDate
+    })
+  }, [startDate, endDate]);
 
   return (
     <StyledDate>
