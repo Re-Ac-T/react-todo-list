@@ -1,6 +1,5 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
-
 import {TxtBox, InputBox, CheckboxBox} from 'components';
 import {useTodoDispatch, useTodoNextId} from "../../ToDoContext";
 import {DummyTabList} from "../../dummy/data";
@@ -35,9 +34,7 @@ function AddTodo() {
         setSelectTabMenu(id)
     });
     const onSubmit = e => {
-        e.preventDefault(); // 새로고침 방지
-        console.log(nextId.current)
-        console.log(slectTabMenu)
+        e.preventDefault();
         dispatch({
             type: 'CREATE',
             todo: {
@@ -48,13 +45,13 @@ function AddTodo() {
                 done: false
             }
         });
+
         setTodoValue('');
         setDdayValue('');
         setSelectTabMenu('')
 
         nextId.current += 1;
     };
-
 
     return (
         <StyledAddTodo>

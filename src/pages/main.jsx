@@ -21,10 +21,10 @@ const StyledMain = styled.div`
 
 
 function Main() {
-    const [changeTabMenu, setChageTabMenu] = useState('all');
+    const [changeTabMenu, setChangeTabMenu] = useState('all');
 
     const handleChangeMenu = useCallback((id) => {
-        setChageTabMenu(id)
+        setChangeTabMenu(id)
     });
 
     return (

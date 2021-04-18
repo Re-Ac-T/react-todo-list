@@ -15,7 +15,6 @@ const StyledTodoList = styled.div`
   }
 `;
 
-
 function TodoList({changeTabMenu}) {
     const todos = useTodoState();
 
@@ -30,10 +29,10 @@ function TodoList({changeTabMenu}) {
                     return <TodoItem key={index} todos={todo} id={todo.id}/>
                 })
                 : todos.filter(todo => {
-                return todo.root === changeTabMenu;
-            }).map((todo, index) => {
-                return <TodoItem key={index} todos={todo} id={todo.id}/>
-            })
+                    return todo.root === changeTabMenu;
+                }).map((todo, index) => {
+                    return <TodoItem key={index} todos={todo} id={todo.id}/>
+                })
             }
             {todoLength === 0 && <p className="emptyTxt">리스트가 비어있습니다.</p>}
         </StyledTodoList>);
